@@ -5,6 +5,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
+import { ReguserModule } from './reguser/reguser.module';
+import { RegUser } from './reguser/entities/reguser.entity';
+import { LendapplicationModule } from './lendapplication/lendapplication.module';
+import { TransactionsuccessModule } from './transactionsuccess/transactionsuccess.module';
+import { LendApplication } from './lendapplication/entities/lendapplication.entity';
+import { TransactionSuccess } from './transactionsuccess/entities/transactionsuccess.entity';
 
 
 @Module({
@@ -16,10 +22,18 @@ import { UsersModule } from './users/users.module';
       username: 'postgres',
       password: 'password123',
       database: 'nestjs',
-      entities: [User],
+      entities: [
+        User, 
+        RegUser,
+        LendApplication,
+        TransactionSuccess
+      ],
       synchronize: true,
     }),
     UsersModule,
+    ReguserModule,
+    LendapplicationModule,
+    TransactionsuccessModule,
   ],
   controllers: [AppController],
   providers: [AppService],
