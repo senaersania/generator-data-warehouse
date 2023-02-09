@@ -5,12 +5,18 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
-import { ReguserModule } from './reguser/reguser.module';
-import { RegUser } from './reguser/entities/reguser.entity';
-import { OjktransactionsuccessModule } from './ojktransactionsuccess/ojktransactionsuccess.module';
-import { OjklendapplicationModule } from './ojklendapplication/ojklendapplication.module';
-import { OjkLendApplication } from './ojklendapplication/entities/ojklendapplication.entity';
-import { OjkTransactionSuccess } from './ojktransactionsuccess/entities/ojktransactionsuccess.entity';
+import { OjkLendApplicationModule } from './ojk-lend-application/ojk-lend-application.module';
+import { OjkLoanApplicationModule } from './ojk-loan-application/ojk-loan-application.module';
+import { OjkTransactionSuccessModule } from './ojk-transaction-success/ojk-transaction-success.module';
+import { PdlUserAuthorizeModule } from './pdl-user-authorize/pdl-user-authorize.module';
+import { RegBorrowerModule } from './reg-borrower/reg-borrower.module';
+import { RegUserModule } from './reg-user/reg-user.module';
+import { OjkLendApplication } from './ojk-lend-application/entities/ojk-lend-application.entity';
+import { OjkLoanApplication } from './ojk-loan-application/entities/ojk-loan-application.entity';
+import { OjkTransactionSuccess } from './ojk-transaction-success/entities/ojk-transaction-success.entity';
+import { PdlUserAuthorize } from './pdl-user-authorize/entities/pdl-user-authorize.entity';
+import { RegBorrower } from './reg-borrower/entities/reg-borrower.entity';
+import { RegUser } from './reg-user/entities/reg-user.entity';
 
 
 @Module({
@@ -24,16 +30,22 @@ import { OjkTransactionSuccess } from './ojktransactionsuccess/entities/ojktrans
       database: 'nestjs',
       entities: [
         User, 
-        RegUser,
+        OjkLendApplication,
+        OjkLoanApplication,
         OjkTransactionSuccess,
-        OjkLendApplication
+        PdlUserAuthorize,
+        RegBorrower,
+        RegUser
       ],
-      synchronize: true,
+      synchronize: true, // production env : set to false
     }),
     UsersModule,
-    ReguserModule,
-    OjktransactionsuccessModule,
-    OjklendapplicationModule,
+    OjkLendApplicationModule,
+    OjkLoanApplicationModule,
+    OjkTransactionSuccessModule,
+    PdlUserAuthorizeModule,
+    RegBorrowerModule,
+    RegUserModule
   ],
   controllers: [AppController],
   providers: [AppService],
