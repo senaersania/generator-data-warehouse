@@ -46,11 +46,10 @@ $ npm run start:prod
 ```
 
 ## Feature
-
-```
-- Multiple Schema Within a Single Data Source : [PUBLIC, ADS, ODS]
+Multiple Schema Within a Single Data Source : [PUBLIC, ADS, ODS]
 [Read More](https://orkhan.gitbook.io/typeorm/docs/multiple-data-sources#using-multiple-schemas-within-a-single-data-source)
 
+```
 - Schema PUBLIC
   - POST /users
   http://localhost:3000/users
