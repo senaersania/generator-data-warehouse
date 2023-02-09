@@ -2,18 +2,25 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class RegUser {
-    @PrimaryGeneratedColumn()
-    user_id: number;
+    @PrimaryGeneratedColumn({
+        type:"bigint"
+    })
+    user_id: string;
 
     @Column()
-    master_code_user: string;
+    master_code_user: number;
 
-    @Column()
+    @Column("text")
     master_user_type: string;
 
-    @Column()
-    register_date: Date;
+    @Column({
+        type: 'date'
+    })
+    register_date: string;
 
     @Column()
-    id_card: number;
+    name: string;
+
+    @Column()
+    id_card: string;
 }

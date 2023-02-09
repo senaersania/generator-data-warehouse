@@ -7,28 +7,13 @@ import { UpdateReguserDto } from './dto/update-reguser.dto';
 export class ReguserController {
   constructor(private readonly reguserService: ReguserService) {}
 
-  @Post()
-  create(@Body() createReguserDto: CreateReguserDto) {
-    return this.reguserService.create(createReguserDto);
-  }
-
   @Get()
   findAll() {
     return this.reguserService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.reguserService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateReguserDto: UpdateReguserDto) {
-    return this.reguserService.update(+id, updateReguserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.reguserService.remove(+id);
+  findOne(@Param('id') user_id: string) {
+    return this.reguserService.findOne(user_id);
   }
 }

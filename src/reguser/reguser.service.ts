@@ -1,26 +1,23 @@
-import { Injectable } from '@nestjs/common';
-import { CreateReguserDto } from './dto/create-reguser.dto';
-import { UpdateReguserDto } from './dto/update-reguser.dto';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { RegUser } from './entities/reguser.entity';
 
 @Injectable()
 export class ReguserService {
-  create(createReguserDto: CreateReguserDto) {
-    return 'This action adds a new reguser';
-  }
+  constructor(
+    @InjectRepository(RegUser) private regUserRepository: Repository<RegUser>
+  ) {}
 
   findAll() {
-    return `This action returns all reguser`;
+    return this.regUserRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} reguser`;
-  }
-
-  update(id: number, updateReguserDto: UpdateReguserDto) {
-    return `This action updates a #${id} reguser`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} reguser`;
+  async findOne(user_id: string) {
+    const regUser = await this.regUserRepository.findOne({where:{user_id}});
+    if (regUser) {
+      return regUser;
+    }
+    throw new HttpException("user not found", HttpStatus.NOT_FOUND);
   }
 }

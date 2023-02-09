@@ -7,10 +7,10 @@ import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
 import { ReguserModule } from './reguser/reguser.module';
 import { RegUser } from './reguser/entities/reguser.entity';
-import { LendapplicationModule } from './lendapplication/lendapplication.module';
-import { TransactionsuccessModule } from './transactionsuccess/transactionsuccess.module';
-import { LendApplication } from './lendapplication/entities/lendapplication.entity';
-import { TransactionSuccess } from './transactionsuccess/entities/transactionsuccess.entity';
+import { OjktransactionsuccessModule } from './ojktransactionsuccess/ojktransactionsuccess.module';
+import { OjklendapplicationModule } from './ojklendapplication/ojklendapplication.module';
+import { OjkLendApplication } from './ojklendapplication/entities/ojklendapplication.entity';
+import { OjkTransactionSuccess } from './ojktransactionsuccess/entities/ojktransactionsuccess.entity';
 
 
 @Module({
@@ -25,15 +25,15 @@ import { TransactionSuccess } from './transactionsuccess/entities/transactionsuc
       entities: [
         User, 
         RegUser,
-        LendApplication,
-        TransactionSuccess
+        OjkTransactionSuccess,
+        OjkLendApplication
       ],
       synchronize: true,
     }),
     UsersModule,
     ReguserModule,
-    LendapplicationModule,
-    TransactionsuccessModule,
+    OjktransactionsuccessModule,
+    OjklendapplicationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
