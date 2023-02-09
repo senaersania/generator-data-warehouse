@@ -45,17 +45,48 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Feature
 
-```bash
-# unit tests
-$ npm run test
+```
+- Multiple Schema Within a Single Data Source : [PUBLIC, ADS, ODS]
+[Read More](https://orkhan.gitbook.io/typeorm/docs/multiple-data-sources#using-multiple-schemas-within-a-single-data-source)
 
-# e2e tests
-$ npm run test:e2e
+- Schema PUBLIC
+  - POST /users
+  http://localhost:3000/users
+  - GET /users
+  http://localhost:3000/users
+  http://localhost:3000/users/:id
+  - PUT /users
+  http://localhost:3000/users/:id
+  - DELETE /users
+  http://localhost:3000/users/:id
 
-# test coverage
-$ npm run test:cov
+- Schema ADS
+  - GET /ojk-lend-application
+  http://localhost:3000/ojk-lend-application
+  http://localhost:3000/ojk-lend-application/:id
+
+  - GET /ojk-loan-application
+  http://localhost:3000/ojk-loan-application
+  http://localhost:3000/ojk-loan-application/:id
+
+  - GET /ojk-transaction-succes
+  http://localhost:3000/ojk-transaction-succes
+  http://localhost:3000/ojk-transaction-succes/:id
+
+  - GET /reg-borrower
+  http://localhost:3000/reg-borrower
+  http://localhost:3000/reg-borrower/:id
+
+  - GET /reg-user
+  http://localhost:3000/reg-user
+  http://localhost:3000/reg-user/:id
+
+- Schema ODS
+  - GET /pdl-user-authorize
+  http://localhost:3000/pdl-user-authorize
+  http://localhost:3000/pdl-user-authorize/:id
 ```
 
 ## Support
