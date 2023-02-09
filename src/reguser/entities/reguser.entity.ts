@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+@Entity({ schema: "ads" })
 export class RegUser {
     @PrimaryGeneratedColumn({
         type:"bigint"

@@ -1,6 +1,6 @@
 import { PrimaryGeneratedColumn, Column, Entity } from "typeorm";
 
-@Entity()
+@Entity({ schema: "ads" })
 export class OjkLendApplication {
     @PrimaryGeneratedColumn()
     serial_id: number;
